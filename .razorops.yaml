@@ -11,4 +11,8 @@ tasks:
     - docker/build:
         image: razoropsrepocode/spring       # build the image with Dockerfile
         push: true                                 # push image to docker hub repository Which is integrated  
-        tags: ["latest-v1"]
+        tags: ["latest-v2"]
+        ## kubernets deployment
+        kubectl apply -f deployment.yml
+        kubectl apply -f service.yml
+        kubectl get svc
