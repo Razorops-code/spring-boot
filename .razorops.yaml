@@ -15,7 +15,7 @@ tasks:
         ## kubernets deployment
   deploy-kubernets:
     when: branch == 'master' # only run if code is pushed to develop branch
-    depends: [build-job, push-to-docker]
+    depends: [build-job]
     steps: 
     - checkout
     - commands:
