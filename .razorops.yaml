@@ -1,6 +1,6 @@
 tasks:
-  unit-job:
-    runner: razorci/openjdk:11-buster
+  build-job:
+    #runner: razorci/openjdk:11-buster
     steps:
     - checkout
     - commands:
@@ -8,11 +8,21 @@ tasks:
         mvn clean package                  # build the package 
         ls -a
         ls target 
+  push-to-docker:
+    depends: [build-job]
+    steps:
     - docker/build:
         image: razoropsrepocode/spring       # build the image with Dockerfile
         push: true                                 # push image to docker hub repository Which is integrated  
         tags: ["latest-v2"]
         ## kubernets deployment
-        kubectl apply -f deployment.yml
-        kubectl apply -f service.yml
+  deploy-kubernets:
+    when: branch == 'master' # only run if code is pushed to develop branch
+    depends: [build-job, push-to-docker]
+    steps: 
+    - checkout
+    - commands:
+      - |
+        kubectl create -f deployment.yml
+        kubectl create -f service.yml
         kubectl get svc
