@@ -9,9 +9,9 @@ tasks:
         ls -a
         ls target 
     - docker/build:
-      image: razoropsrepocode/spring       # build the image with Dockerfile
-      push: true                                 # push image to docker hub repository Which is integrated  
-      tags: ["latest-v2"]
+       image: razoropsrepocode/spring       # build the image with Dockerfile
+       push: true                                 # push image to docker hub repository Which is integrated  
+       tags: ["latest-v2"]
         ## kubernets deployment
   deploy-kubernets:
     when: branch == 'master' # only run if code is pushed to develop branch
