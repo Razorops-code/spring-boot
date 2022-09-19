@@ -8,11 +8,11 @@ tasks:
         mvn clean package                  # build the package 
         ls -a
         ls target 
-  push-to-docker:
-    depends: [build-job]
-    steps:
-    - checkout
-    - commands:
+  #push-to-docker:
+  #  depends: [build-job]
+  #  steps:
+  #  - checkout
+  #  - commands:
     - docker/build:
         image: razoropsrepocode/spring       # build the image with Dockerfile
         push: true                                 # push image to docker hub repository Which is integrated  
