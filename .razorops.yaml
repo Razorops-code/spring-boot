@@ -11,6 +11,8 @@ tasks:
   push-to-docker:
     depends: [build-job]
     steps:
+    - checkout
+    - commands:
     - docker/build:
         image: razoropsrepocode/spring       # build the image with Dockerfile
         push: true                                 # push image to docker hub repository Which is integrated  
