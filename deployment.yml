@@ -14,7 +14,7 @@
      spec:
        containers:
        - name: java-app
-         image: razoropsrepocode/spring:latest-v2
+         image: us.icr.io/plasmadonar/plasma:v1
          imagePullPolicy: Always
          ports:
          - containerPort: 8080
