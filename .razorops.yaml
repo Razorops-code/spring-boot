@@ -1,5 +1,5 @@
 tasks:
-  unit-test:
+  jfrog-build:
     runner: razorci/openjdk:11-buster
     steps:
     - checkout
