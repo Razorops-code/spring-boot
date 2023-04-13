@@ -10,4 +10,4 @@ tasks:
     - docker/build:
          image: razoropscode.jfrog.io/docker/spring
          push: true 
-         tags: ["latest-v1"]
+         tags: ["latest-v1"] 
