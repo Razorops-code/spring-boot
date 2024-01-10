@@ -8,6 +8,7 @@ tasks:
         mvn clean package
            ls -a
     - docker/build:
-         image: razoropscode.jfrog.io/docker/spring
+         image: razoropsrepocode/spring
+         #image: razoropscode.jfrog.io/docker/spring
          push: true 
          tags: ["latest-v1"] 
